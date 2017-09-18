@@ -73,7 +73,7 @@ if(typeof process.argv[2] === "undefined"){
 
 //更新配置文件
 function updateConfig(name,val){
-    var settingPath = path.resolve("../config.json");
+    var settingPath = path.resolve(_dirname,"../config.json");
     if(typeof name === "undefined"){
         return;
     }

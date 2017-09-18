@@ -1,6 +1,6 @@
 {
   "name": "cocos2d-html5-packager",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "description": "cocos2d-html5 项目js列表混淆、合并、压缩",
   "bin": {
     "cocospack": "./bin/index.js"

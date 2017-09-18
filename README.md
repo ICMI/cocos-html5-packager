@@ -16,7 +16,7 @@ cocospack set perfix xxx //xxx可以修改；prefix表示当前目录与项目�
 ```
 ###For example
 项目目录结构：
-``` 
+``` shell
 www
  |--engine
      |--res
@@ -26,6 +26,7 @@ www
      |--project.json
      |--index.html
 ```
+
 执行
 
 ```shell
@@ -34,7 +35,7 @@ cocospack set prefix "engine"
 cocospack
 ```
 输出
-``` 
+``` shell
 www
  |--dist
      |-engine
@@ -52,6 +53,7 @@ www
      |--project.json
      |--index.html
 ```
+
 执行
 ```shell
 cd www/engine
@@ -59,7 +61,7 @@ cocospack set prefix ""
 cocospack
 ```
 输出
-``` 
+``` shell
 www
  |-engine
     |--dist
@@ -75,6 +77,7 @@ www
     |--project.json
     |--index.html
 ```
+
 ##build.json
 命令执行时会读取当前根目录下build.json文件，覆盖全局配置。
 
