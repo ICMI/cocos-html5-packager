@@ -14,7 +14,9 @@ commander
     .command('set <name> [content]')
     .description('路径前缀配置:set prefix engine(默认值) ')
     .action(function(name,content){
-        if(name && content){
+        if(typeof name === "undefined"){
+            console.error("配置名称不能为空");
+        }else if(name && typeof content !== "undefined"){
             updateConfig(name,content);
         }
     });
@@ -72,7 +74,7 @@ if(typeof process.argv[2] === "undefined"){
 //更新配置文件
 function updateConfig(name,val){
     var settingPath = path.resolve("../config.json");
-    if(typeof stringify[name] === "undefined"){
+    if(typeof name === "undefined"){
         return;
     }
     config[name] = val;
@@ -86,14 +88,14 @@ function getJsList() {
     if(fs.existsSync(setting.projectJson)){
         var projectJson = JSON.parse(fs.readFileSync(setting.projectJson));
     }else{
-        console.error("找不到project.json");
+        console.error("\n找不到project.json");
         process.exit(0)
     }
     //读取框架模块配置
     if(fs.existsSync(setting.frameWorksPathModuleJson)){
         var moduleJson = JSON.parse(fs.readFileSync(setting.frameWorksPathModuleJson));
     }else{
-        console.error("找不到框架模块配置文件moduleConfig.json");
+        console.error("\n找不到框架模块配置文件moduleConfig.json");
         process.exit(0)
     }
     var projectModulesList = projectJson["modules"];
@@ -150,4 +152,3 @@ function startGulp(){
     }
     gulp.start("default");
 }
-//

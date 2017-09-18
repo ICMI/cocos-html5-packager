@@ -1,6 +1,6 @@
 {
   "name": "cocos2d-html5-packager",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "cocos2d-html5 项目js列表混淆、合并、压缩",
   "bin": {
     "cocospack": "./bin/index.js"
@@ -12,9 +12,9 @@
     "cocos2d-html5",
     "项目js列表混淆、合并、压缩"
   ],
-  "repository":{
-    "type" : "git",
-    "url" : "https://github.com/ICMI/cocos2d-html5-packager.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ICMI/cocos2d-html5-packager.git"
   },
   "author": "xuezhiqiang@corp.netease.com",
   "license": "ISC",
