@@ -22,6 +22,7 @@ gulp.task("html",function () {
         .pipe(through2.obj(function (file, enc, cb) {
             file.base =path.dirname(file.path);
             file.contents = new Buffer(file.contents.toString().replace(/<script.*CCBoot.*?script>/,'<script src="cocos2d.pkg.js"></script>'))
+            file.contents = new Buffer(file.contents.toString().replace(/<script.*main.*?script>/,'<script src="main.js"></script>'))
             cb(null,file);
         }))
         .pipe(gulp.dest(setting.dist))
