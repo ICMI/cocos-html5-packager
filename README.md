@@ -78,6 +78,9 @@ www
     |--index.html
 ```
 
+(注：```cocospack set```命令只用执行一次即可写入到全局配置，不用每次执行都set一次。示例代码只是演示如何使用set命令)
+
+
 ##build.json
 命令执行时会读取当前根目录下build.json文件，覆盖全局配置。
 

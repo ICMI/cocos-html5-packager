@@ -61,7 +61,6 @@ function initSetting() {
     setting.mainPath = path.join(setting.projectPath,"main.js");
     setting.projectJson = path.join(setting.projectPath,"project.json");
     setting.dist = setting.dist||"dist";
-    setting.dist = path.join(setting.dist,setting.prefix);
     setting.outputName = setting.outputName||"game.pkg.js";
     setting.indexHtmlPath = path.join(setting.projectPath,"index.html")
 }
@@ -130,7 +129,7 @@ function getJsList() {
    return {
        finalProjectJsList:Object.keys(finalProjectJsList)
             .map(function (item) {
-            return path.resolve(path.relative("/",item));
+            return path.resolve(combineJsPath(setting.prefix,path.relative("/",item)));
         }),
        finalModuleJsList:[
            setting.frameWorksPathBoot,
@@ -139,6 +138,18 @@ function getJsList() {
                 return path.resolve(setting.frameWorksPath,item);
         })]
     }
+}
+function combineJsPath(path1,path2){
+    var obj = {};
+    path1 = path.normalize(path1).split(path.sep);
+    path2 = path.normalize(path2).split(path.sep);
+    path1.forEach(function(item){
+        obj[item]=1;
+    })
+    path2.forEach(function(item){
+        obj[item]=1;
+    });
+    return Object.keys(obj).join(path.sep);
 }
 //运行task
 function startGulp(){
