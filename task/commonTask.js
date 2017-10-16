@@ -18,7 +18,7 @@ gulp.task("projectJson",function () {
 });
 
 gulp.task("html",function () {
-    return gulp.src([setting.projectPath+"/*.html"])
+    return gulp.src([setting.indexHtmlPath])
         .pipe(through2.obj(function (file, enc, cb) {
             file.base =path.dirname(file.path);
             file.contents = new Buffer(file.contents.toString().replace(/<script.*CCBoot.*?script>/,'<script src="cocos2d.pkg.js"></script>'))
