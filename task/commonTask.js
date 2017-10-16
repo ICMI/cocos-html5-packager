@@ -18,11 +18,11 @@ gulp.task("projectJson",function () {
 });
 
 gulp.task("html",function () {
-    return gulp.src([setting.indexHtmlPath])
+    return gulp.src([setting.projectPath+"/*.html"])
         .pipe(through2.obj(function (file, enc, cb) {
             file.base =path.dirname(file.path);
             file.contents = new Buffer(file.contents.toString().replace(/<script.*CCBoot.*?script>/,'<script src="cocos2d.pkg.js"></script>'))
-            file.contents = new Buffer(file.contents.toString().replace(/<script.*main.*?script>/,'<script src="main.js"></script>'))
+            file.contents = new Buffer(file.contents.toString().replace(/<script.*main.*?script>/,'<script cocos src="main.js"></script>'))
             cb(null,file);
         }))
         .pipe(gulp.dest(setting.dist))
